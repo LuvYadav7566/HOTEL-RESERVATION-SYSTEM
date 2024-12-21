@@ -3,7 +3,6 @@ class Hotel:
         self.name = name
         self.rooms = rooms  
         self.reservations = {}  
-        
     def show_available_rooms(self):
         available_rooms = [room for room, available in self.rooms.items() if available]
         total_rooms = len(self.rooms)
@@ -13,7 +12,6 @@ class Hotel:
         print(f"Total Rooms: {total_rooms}")
         print(f"Available Rooms: {available_count}")
         print(f"Reserved Rooms: {reserved_count}")
-
     def make_reservation(self, customer_name, room_number, days, nights):
         if room_number in self.rooms and self.rooms[room_number]:
             self.rooms[room_number] = False
@@ -21,7 +19,6 @@ class Hotel:
             print(f"Reservation successful for {customer_name} in room {room_number} for {days} days and {nights} nights.")
         else:
             print(f"Room {room_number} is not available.")
-
     def cancel_reservation(self, customer_name):
         if customer_name in self.reservations:
             room_number = self.reservations[customer_name]['room']
@@ -30,7 +27,6 @@ class Hotel:
             print(f"Reservation for {customer_name} in room {room_number} has been canceled.")
         else:
             print(f"No reservation found for {customer_name}.")
-
     def show_reservations(self):
         if self.reservations:
             print("Current Reservations:")
@@ -41,19 +37,14 @@ class Hotel:
                 print(f"Customer: {customer_name}, Room: {room_number}, Days: {days}, Nights: {nights}")
         else:
             print("No current reservations.")
-
     def show_hotel_info(self):
         print(f"Hotel Name: {self.name}")
         print(f"Total Rooms: {len(self.rooms)}")
-
 def print_hollow_square_pattern(choices):
     width = max(len(choice) for choice in choices) + 4   
-
     print('*' * width)
-    
     for choice in choices:
         print(f"* {choice.ljust(width - 3)}*")
-    
     print('*' * width)
 
 hotel_name = input("Enter the hotel name: ")
